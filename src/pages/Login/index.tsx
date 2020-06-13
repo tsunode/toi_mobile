@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, TouchableOpacity, Text, StatusBar, SafeAreaView, Animated, Keyboard } from 'react-native';
+import { View, TouchableOpacity, Text, StatusBar, SafeAreaView, Animated, Keyboard } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/FontAwesome5';
