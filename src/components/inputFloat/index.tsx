@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, StyleSheet, Animated } from 'react-native';
+import React, { useState } from 'react';
+import { View, TextInput, Animated } from 'react-native';
 
 import style from './styles';
 
 interface Props {
     label: string;
+    onFocus: Function;
     secureText?: boolean;
 }
 
@@ -35,7 +36,12 @@ const InputFloat: React.FC<Props> = (props) => {
         }
     }
 
-    console.log(secureText);
+
+    function handleClick() {
+        handleFocus();
+        props.onFocus();
+
+    }
 
     function handleFocus() {
         Animated.timing(
@@ -51,7 +57,7 @@ const InputFloat: React.FC<Props> = (props) => {
     }
 
     return (
-        <View>
+        <View style={style.main}>
             <Animated.Text
                 style={[
                     style.label,
@@ -70,7 +76,7 @@ const InputFloat: React.FC<Props> = (props) => {
                 style={style.input}
                 value={inputValue}
                 secureTextEntry={secureText}
-                onFocus={handleFocus}
+                onFocus={handleClick}
                 onBlur={handleBlur}
                 onChangeText={setInputValue}
             />

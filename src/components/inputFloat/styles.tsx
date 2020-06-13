@@ -3,25 +3,28 @@ import { StyleSheet } from 'react-native';
 
 const style = StyleSheet.create({
 
+    main: {
+        height: 60,
+    },
+
     input: {
-        borderBottomColor: "#f10",
+        color: '#fff',
+        borderBottomColor: "#fff",
         borderBottomWidth: 1,
         fontSize: 20,
         padding: 0,
-        paddingTop: 15
+        paddingTop: 20
     },
 
     label: {
         position: "absolute",
         left: 0,
         fontSize: 18,
-        // top: 18
+        color: '#fff'
     },
 
     labelFocus: {
-        color: "#000",
         fontSize: 14,
-        // top: 0
     }
 });
 
