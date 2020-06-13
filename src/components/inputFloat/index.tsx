@@ -5,7 +5,6 @@ import style from './styles';
 
 interface Props {
     label: string;
-    onFocus: Function;
     secureText?: boolean;
 }
 
@@ -36,12 +35,6 @@ const InputFloat: React.FC<Props> = (props) => {
         }
     }
 
-
-    function handleClick() {
-        handleFocus();
-        props.onFocus();
-
-    }
 
     function handleFocus() {
         Animated.timing(
@@ -76,9 +69,10 @@ const InputFloat: React.FC<Props> = (props) => {
                 style={style.input}
                 value={inputValue}
                 secureTextEntry={secureText}
-                onFocus={handleClick}
+                onFocus={handleFocus}
                 onBlur={handleBlur}
                 onChangeText={setInputValue}
+                returnKeyType="next"
             />
         </View>
     );

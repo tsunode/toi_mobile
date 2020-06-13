@@ -1,13 +1,11 @@
 import React from 'react';
 import {TextInput, View} from 'react-native';
 
-import Home from './src/pages/Home';
+import Routes from './routes';
 
 
 export default function App() {
   return (
-    <Home />
+    <Routes />
   );
 };
-
-
