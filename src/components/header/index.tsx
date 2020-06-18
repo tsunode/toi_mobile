@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image, Dimensions, StatusBar} from 'react-native';
+import IconToi from '../../config/icontoi';
 
 // svgs
 import Logo from '../../assets/img/logo_escrita.svg';
@@ -22,7 +23,7 @@ const Header = () => {
         </View>
         <View style={styles.headerElem}>
             <View style={styles.headerRight}>
-                {/* <IconToi name="search" size={30} color="#FCAE12" /> */}
+                <IconToi name="search" size={30} color="#FCAE12" />
                 <Image
                         style={styles.perfilImage}
                         source={require('../../assets/img/perfil.jpg')}
