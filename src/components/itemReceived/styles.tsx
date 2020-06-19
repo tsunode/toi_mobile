@@ -96,14 +96,18 @@ const styles = StyleSheet.create({
 
     toiFooter: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        padding: 10,
+        justifyContent: 'center',
+        marginVertical: 10,
         alignItems: 'center',
     },
 
     toiFooterButton: {
+        flex: 1,
         flexDirection: 'row',
-        alignItems: 'flex-start'
+        justifyContent: 'center',
+        backgroundColor: colors.dark_primary,
+        padding: 5,
+        borderRadius: 15
     },
 
     toiFooterText: {

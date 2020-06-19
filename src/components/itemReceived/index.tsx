@@ -5,6 +5,7 @@ import IconToi from '../../config/icontoi';
 
 
 import styles from './styles';
+import { colors } from '../../styles';
 
 interface Props {
     id: number;
@@ -25,9 +26,6 @@ const ItemReceived: React.FC<Props> = (props) => {
     const [itemAnimated, setItemAnimated] = useState(new Animated.Value(0));
     const [refItem, setRefItem] = useState<Swipeable | null>();
     const [interpolatedColor, setInterpolatedColor] = useState(new Animated.Value(0));
-    const [friction, setFriction] = useState(1);
-
-
 
     const LeftActions = (progress: Animated.AnimatedInterpolation, dragX: Animated.AnimatedInterpolation) => {
 
@@ -149,8 +147,8 @@ const ItemReceived: React.FC<Props> = (props) => {
                             </Text>
                         </View>
                         <View style={styles.toiFooter}>
-                            <TouchableOpacity style={styles.toiFooterButton}>
-                                <IconToi name="send" size={25} color="#FFF" style={{ marginTop: 3 }} />
+                            <TouchableOpacity style={styles.toiFooterButton} activeOpacity={0.7}>
+                                <IconToi name="send" size={25} color={colors.text} style={{ marginTop: 3 }} />
                                 <Text style={styles.toiFooterText}>Responder</Text>
                             </TouchableOpacity >
                         </View>
