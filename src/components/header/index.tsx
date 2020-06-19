@@ -1,12 +1,14 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image, Dimensions, StatusBar} from 'react-native';
+import { View, Text, Image, Dimensions, StatusBar} from 'react-native';
 import IconToi from '../../config/icontoi';
 
 // svgs
 import Logo from '../../assets/img/logo_escrita.svg';
 import HeaderBar from '../../assets/img/header.svg';
 
-// import IconToi from '../iconsToi.js'
+// styles
+import styles from './styles';
+import colors from '../../styles/colors';
 
 const Header = () => {
     
@@ -23,64 +25,15 @@ const Header = () => {
         </View>
         <View style={styles.headerElem}>
             <View style={styles.headerRight}>
-                <IconToi name="search" size={30} color="#FCAE12" />
+                <IconToi name="search" size={30} color={colors.primary} />
                 <Image
                         style={styles.perfilImage}
-                        source={require('../../assets/img/perfil.jpg')}
+                        source={require('../../assets/img//test/perfil.jpg')}
                     />
             </View>
         </View>
     </View> 
     )
 }
-
-const styles = StyleSheet.create({
-    header:{
-        width: Dimensions.get('screen').width,
-        height:55,
-        flexDirection: "row",
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#2A2626',
-        margin:0,
-        padding:0
-    },
-
-    headerElem:{
-        flex:1,
-    },
-
-    headerBack:{
-        position:'absolute'
-    },
-
-    logo:{
-        marginLeft: 15,
-    },
-
-    headerText:{
-        color: '#fff',
-        textAlign: 'center',
-        marginLeft: -15,
-        fontSize: 16
-    },
-
-    headerRight:{
-        flex:1,
-        alignItems:"center",
-        justifyContent:"flex-end",
-        flexDirection:"row",
-        marginRight: 15
-    },
-
-    perfilImage:{
-        width:40,
-        height:40,
-        borderRadius:50,
-        marginLeft: 15
-    }
-});
-
-
 
 export default Header;

@@ -8,8 +8,9 @@ import { useNavigation } from '@react-navigation/native';
 // Componentes
 import InputFloat from '../../components/inputFloat'
 
-//style
-import style from './styles';
+//styles
+import styles from './styles';
+import colors from '../../styles/colors'
 
 // imagens
 import Logo from '../../assets/img/toi_logo_cinza.svg';
@@ -61,14 +62,14 @@ const Login = () => {
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            <StatusBar backgroundColor="#17518B" />
+            <StatusBar backgroundColor={colors.dark_primary} />
             <LinearGradient
-                colors={["#17518B", "#000"]}
-                style={style.container}
+                colors={[colors.dark_primary, colors.background]}
+                style={styles.container}
             >
                 <Animated.View
                     style={[
-                        style.logoView,
+                        styles.logoView,
                         {
                             transform: [{
                                 scale: logoScale
@@ -78,34 +79,34 @@ const Login = () => {
                 >
                     <Logo width={180} height={200} />
                 </Animated.View>
-                <View style={style.main}>
+                <View style={styles.main}>
                     <InputFloat label="Login" />
                     <InputFloat label="Senha" secureText={true} />
 
-                    <RectButton activeOpacity={0.8} style={style.buttonEnter} onPress={handleNavigationToHome}>
-                        <Text style={style.buttonText}>
+                    <RectButton activeOpacity={0.8} style={styles.buttonEnter} onPress={handleNavigationToHome}>
+                        <Text style={styles.buttonText}>
                             Entrar
                         </Text>
                     </RectButton>
 
-                    <Text style={style.forgotPassword}> Esqueceu a senha?</Text>
+                    <Text style={styles.forgotPassword}> Esqueceu a senha?</Text>
                 </View>
-                <View style={style.footer}>
-                    <View style={keyboardStatus === 'hide' ? style.viewButtonLeft : style.viewButtonLeftKeyboard}>
+                <View style={styles.footer}>
+                    <View style={keyboardStatus === 'hide' ? styles.viewButtonLeft : styles.viewButtonLeftKeyboard}>
 
                         <TouchableOpacity
                             activeOpacity={0.8}
-                            style={keyboardStatus === 'hide' ? [style.buttonLeft, style.facePropriety] : [style.buttonLeftKeyboard, style.faceProprietyKeyBoard]}
+                            style={keyboardStatus === 'hide' ? [styles.buttonLeft, styles.facePropriety] : [styles.buttonLeftKeyboard, styles.faceProprietyKeyBoard]}
                         >
-                            <Icon name="facebook-f" size={30} color="#fff" />
+                            <Icon name="facebook-f" size={30} color={colors.text} />
                         </TouchableOpacity >
-                        <TouchableOpacity activeOpacity={0.8} style={keyboardStatus === 'hide' ? style.buttonLeft : style.buttonLeftKeyboard}>
+                        <TouchableOpacity activeOpacity={0.8} style={keyboardStatus === 'hide' ? styles.buttonLeft : styles.buttonLeftKeyboard}>
                             <Google width="70%" height={40} />
                         </TouchableOpacity >
                     </View>
-                    <View style={style.viewRegister}>
-                        <TouchableOpacity activeOpacity={0.8} style={style.buttonRegister}>
-                            <Text style={style.buttonText}>
+                    <View style={styles.viewRegister}>
+                        <TouchableOpacity activeOpacity={0.8} style={styles.buttonRegister}>
+                            <Text style={styles.buttonText}>
                                 Cadastre-se
                             </Text>
                         </TouchableOpacity >

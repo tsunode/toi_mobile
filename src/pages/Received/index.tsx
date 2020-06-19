@@ -7,7 +7,7 @@ import IconToi from '../../config/icontoi';
 import Header from '../../components/header';
 import ItemReceived from '../../components/itemReceived';
 
-import style from './styles';
+import styles from './styles';
 
 interface Item {
     id: number;
@@ -96,19 +96,19 @@ const Received = () => {
     return (
         <>
             <Header />
-            <View style={style.container}>
-                <View style={style.filterContainer}>
+            <View style={styles.container}>
+                <View style={styles.filterContainer}>
                     <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 10 }}>
                         {
                             filtros.map(filtro => (
                                 <TouchableOpacity
                                     key={filtro.id}
                                     activeOpacity={0.7}
-                                    style={[style.filterView, filtro.id === filter ? style.filterActive : {}]}
+                                    style={[styles.filterView, filtro.id === filter ? styles.filterActive : {}]}
                                     onPress={() => setFilter(filtro.id)}
                                 >
                                     <Text
-                                        style={[style.filterText, filtro.id === filter ? { color: '#000' } : {}]}
+                                        style={[styles.filterText, filtro.id === filter ? { color: '#000' } : {}]}
                                         numberOfLines={1}
                                     >
                                         {filtro.nome}

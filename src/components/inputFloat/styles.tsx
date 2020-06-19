@@ -1,15 +1,17 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-const style = StyleSheet.create({
+import colors from '../../styles/colors';
+
+const styles = StyleSheet.create({
 
     main: {
         height: 60,
     },
 
     input: {
-        color: '#fff',
-        borderBottomColor: "#fff",
+        color: colors.text,
+        borderBottomColor: colors.text,
         borderBottomWidth: 1,
         fontSize: 20,
         padding: 0,
@@ -20,7 +22,7 @@ const style = StyleSheet.create({
         position: "absolute",
         left: 0,
         fontSize: 18,
-        color: '#fff'
+        color: colors.text
     },
 
     labelFocus: {
@@ -29,4 +31,4 @@ const style = StyleSheet.create({
     }
 });
 
-export default style;
+export default styles;

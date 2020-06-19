@@ -2,15 +2,18 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-const style = StyleSheet.create({
+// colors
+import colors from '../../styles/colors'
+
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingBottom: 5,
-        backgroundColor: '#000',
+        backgroundColor: colors.background,
     },
 
     filterView: {
-        backgroundColor: '#3E3838',
+        backgroundColor: colors.dark_tertiary,
         minWidth: 100,
         maxWidth: 150,
         height: 35,
@@ -23,29 +26,28 @@ const style = StyleSheet.create({
 
     filterContainer: {
         paddingVertical: 5,
-        backgroundColor: '#2A2626'
+        backgroundColor:  colors.dark_primary,
     },
 
     filterActive: {
-        backgroundColor: '#FCAE12',
+        backgroundColor: colors.primary,
     },
 
     filterText: {
-        color: '#fff',
+        color:  colors.text,
         fontSize: 18,
         textAlign: 'center'
     },
 
     toiContainer: {
-        // padding: 15,
         paddingHorizontal: 15,
         paddingTop: 15,
-        backgroundColor: '#1D1A1A',
+        backgroundColor: colors.dark_secondary,
         marginVertical: 10
     },
 
     leftAction: {
-        backgroundColor: '#FCAE12',
+        backgroundColor: colors.primary,
         marginVertical: 10,
         flex: 0.5,
         justifyContent: 'center',
@@ -53,9 +55,8 @@ const style = StyleSheet.create({
     },
 
     rightAction: {
-        backgroundColor: '#f10',
+        backgroundColor: colors.delete,
         marginVertical: 10,
-        // flex: 0.3,
         alignItems: 'flex-end',
         justifyContent: 'center',
         paddingHorizontal: 15
@@ -84,28 +85,28 @@ const style = StyleSheet.create({
     },
 
     userName: {
-        color: '#fff',
+        color: colors.text,
         fontWeight: 'bold',
         fontSize: 18
     },
 
     userDescription: {
-        color: '#fff'
+        color: colors.text
     },
 
     timeRecived: {
-        color: '#fff'
+        color: colors.text
     },
 
     toiMain: {
-        backgroundColor: '#2A2626',
+        backgroundColor: colors.dark_primary,
         marginTop: 10,
         padding: 10,
         borderRadius: 20
     },
 
     toiMainText: {
-        color: '#fff',
+        color: colors.text,
         fontSize: 18
     },
 
@@ -122,10 +123,10 @@ const style = StyleSheet.create({
     },
 
     toiFooterText: {
-        color: '#fff',
+        color: colors.text,
         fontSize: 18,
         marginLeft: 5,
     }
 })
 
-export default style;
+export default styles;

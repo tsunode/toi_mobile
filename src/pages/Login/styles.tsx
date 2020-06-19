@@ -2,7 +2,10 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-const style = StyleSheet.create({
+//colors
+import colors from '../../styles/colors'
+
+const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
@@ -21,7 +24,7 @@ const style = StyleSheet.create({
     },
 
     buttonEnter: {
-        backgroundColor: "#fff",
+        backgroundColor: colors.primary,
         height: 45,
         borderRadius: 5,
         marginTop: 10,
@@ -30,13 +33,13 @@ const style = StyleSheet.create({
     },
 
     buttonText: {
-        color: "#17518B",
+        color: colors.text,
         textAlign: 'center',
         fontSize: 20,
     },
 
     forgotPassword: {
-        color: '#fff',
+        color: colors.text,
         textAlign: 'center',
         marginTop: 10
     },
@@ -76,11 +79,11 @@ const style = StyleSheet.create({
         justifyContent: 'center',
         borderBottomRightRadius: 50,
         borderTopRightRadius: 10,
-        backgroundColor: '#fff',
+        backgroundColor: colors.text,
     },
 
     buttonLeftKeyboard: {
-        backgroundColor: '#fff',
+        backgroundColor: colors.text,
         margin: 10,
         width: '35%',
         height: 50,
@@ -90,7 +93,7 @@ const style = StyleSheet.create({
     },
 
     buttonRegister: {
-        backgroundColor: '#fff',
+        backgroundColor: colors.primary,
         padding: 5,
         paddingHorizontal: 30,
         borderTopStartRadius: 10,
@@ -98,4 +101,4 @@ const style = StyleSheet.create({
     }
 })
 
-export default style;
+export default styles;

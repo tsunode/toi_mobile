@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, Animated } from 'react-native';
 
-import style from './styles';
+import styles from './styles';
 
 interface Props {
     label: string;
@@ -50,23 +50,23 @@ const InputFloat: React.FC<Props> = (props) => {
     }
 
     return (
-        <View style={style.main}>
+        <View style={styles.main}>
             <Animated.Text
                 style={[
-                    style.label,
+                    styles.label,
                     {
                         transform: [{
                             translateY: topText
                         }]
                     },
-                    focus === true ? style.labelFocus : {},
+                    focus === true ? styles.labelFocus : {},
                 ]}
             >
                 {label}
             </Animated.Text>
             <TextInput
                 autoCorrect={false}
-                style={style.input}
+                style={styles.input}
                 value={inputValue}
                 secureTextEntry={secureText}
                 onFocus={handleFocus}

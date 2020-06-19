@@ -2,13 +2,17 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-const style = StyleSheet.create({
+// colors
+
+import colors from '../../styles/colors';
+
+const styles = StyleSheet.create({
 
     toiContainer: {
         paddingHorizontal: 20,
         paddingTop: 15,
         margin: 2,
-        backgroundColor: '#1D1A1A',
+        backgroundColor: colors.background_card,
     },
 
     toiContainerSave:{
@@ -17,13 +21,13 @@ const style = StyleSheet.create({
         width: '100%',
         height: '100%',
         borderWidth: 2,
-        borderColor: '#FCAE12',
+        borderColor: colors.primary,
         backgroundColor: 'transparent',
         display: 'none',
     },
 
     leftAction: {
-        backgroundColor: '#FCAE12',
+        backgroundColor:  colors.primary,
         marginVertical: 13,
         flex: 0.3,
         justifyContent: 'center',
@@ -31,7 +35,7 @@ const style = StyleSheet.create({
     },
 
     rightAction: {
-        backgroundColor: '#f10',
+        backgroundColor:  colors.delete,
         marginVertical: 13,
     },
 
@@ -65,32 +69,28 @@ const style = StyleSheet.create({
     },
 
     userName: {
-        color: '#fff',
+        color: colors.text,
         fontWeight: 'bold',
         fontSize: 18
     },
 
     userDescription: {
-        color: '#fff'
+        color: colors.text
     },
 
     timeRecived: {
-        color: '#fff'
+        color: colors.text
     },
 
     toiMain: {
-        backgroundColor: '#2A2626',
+        backgroundColor:  colors.dark_primary,
         marginTop: 10,
         padding: 10,
         borderRadius: 20
     },
 
-    toiMainSave:{
-        backgroundColor: '#7D632E',
-    },
-
     toiMainText: {
-        color: '#fff',
+        color: colors.text,
         fontSize: 18
     },
 
@@ -107,10 +107,10 @@ const style = StyleSheet.create({
     },
 
     toiFooterText: {
-        color: '#fff',
+        color: colors.text,
         fontSize: 18,
         marginLeft: 5,
     }
 })
 
-export default style;
+export default styles;

@@ -4,7 +4,7 @@ import Swipeable from 'react-native-gesture-handler/Swipeable';
 import IconToi from '../../config/icontoi';
 
 
-import style from './styles';
+import styles from './styles';
 
 interface Props {
     id: number;
@@ -38,7 +38,7 @@ const ItemReceived: React.FC<Props> = (props) => {
         });
 
         return (
-            <View style={style.leftAction}>
+            <View style={styles.leftAction}>
                 <Animated.Text style={{ transform: [{ scale }] }}>
                     <IconToi name="save" size={35} color="#FFF" />
                 </Animated.Text>
@@ -55,8 +55,8 @@ const ItemReceived: React.FC<Props> = (props) => {
         });
 
         return (
-            <Animated.View style={[style.rightAction, { transform: [{ translateX: itemAnimated }] }]}>
-                <TouchableOpacity style={style.rightButton} activeOpacity={0.8} onPress={handleTrash}>
+            <Animated.View style={[styles.rightAction, { transform: [{ translateX: itemAnimated }] }]}>
+                <TouchableOpacity style={styles.rightButton} activeOpacity={0.8} onPress={handleTrash}>
                     <View  >
                         <Animated.Text style={{ transform: [{ scale }] }}>
                             <IconToi name="trash" size={35} color="#FFF" />
@@ -119,39 +119,39 @@ const ItemReceived: React.FC<Props> = (props) => {
             >
 
                 <Animated.View style={[{ position: 'relative', marginVertical: 10 }, { transform: [{ translateX: itemAnimated }] }]}>
-                    <Animated.View style={[style.toiContainerSave, { opacity: interpolatedColor }]}>
+                    <Animated.View style={[styles.toiContainerSave, { opacity: interpolatedColor }]}>
                     </Animated.View>
-                    <View style={[style.toiContainer,]} >
-                        <View style={style.toiHeader}>
-                            <View style={style.userContainer} >
+                    <View style={[styles.toiContainer,]} >
+                        <View style={styles.toiHeader}>
+                            <View style={styles.userContainer} >
                                 <Image
-                                    style={style.userImage}
-                                    source={require('../../assets/img/sem_perfil.jpg')}
+                                    style={styles.userImage}
+                                    source={require('../../assets/img//test/sem_perfil.jpg')}
                                 />
                                 <View>
-                                    <Text style={style.userName}>
+                                    <Text style={styles.userName}>
                                         {props.user}
                                     </Text>
-                                    <Text style={style.userDescription}>
+                                    <Text style={styles.userDescription}>
                                         {props.proffession}
                                     </Text>
                                 </View>
                             </View>
                             <View>
-                                <Text style={style.timeRecived}>
+                                <Text style={styles.timeRecived}>
                                     13 min
                                 </Text>
                             </View>
                         </View>
-                        <View style={[style.toiMain,]}>
-                            <Text style={style.toiMainText} numberOfLines={3}>
+                        <View style={[styles.toiMain,]}>
+                            <Text style={styles.toiMainText} numberOfLines={3}>
                                 Como utilizar a ferramenta do moodle, de forma que eu consiga organizar por salas de aula?xcccccccccccsssssssssssss
                             </Text>
                         </View>
-                        <View style={style.toiFooter}>
-                            <TouchableOpacity style={style.toiFooterButton}>
+                        <View style={styles.toiFooter}>
+                            <TouchableOpacity style={styles.toiFooterButton}>
                                 <IconToi name="send" size={25} color="#FFF" style={{ marginTop: 3 }} />
-                                <Text style={style.toiFooterText}>Responder</Text>
+                                <Text style={styles.toiFooterText}>Responder</Text>
                             </TouchableOpacity >
                         </View>
                     </View>

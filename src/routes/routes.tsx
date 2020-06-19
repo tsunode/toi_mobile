@@ -2,15 +2,15 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import IconToi from './config/icontoi';
 
-
+// configs
 import config from './routes.config';
 
-import Login from './pages/Login';
-import Received from './pages/Received';
-import Sended from './pages/Sended';
-import Profile from './pages/Profile';
+// routes
+import Login from '../pages/Login';
+import Received from '../pages/Received';
+import Sended from '../pages/Sended';
+import Profile from '../pages/Profile';
 
 const AppStack = createStackNavigator();
 
@@ -21,29 +21,9 @@ const TabNavigator = () => {
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
-                tabBarIcon: ({ focused, color, size }) => config({ route, focused, color, size })
+                tabBarIcon: ({ focused, color, size }) => config.screenOptions({ route, focused, color, size })
             })}
-            tabBarOptions={{
-                activeTintColor: '#FBA700',
-                inactiveTintColor: '#F5C056',
-                activeBackgroundColor: '#2A2626',
-                inactiveBackgroundColor: '#2A2626',
-                style: {
-                    // Remove border top on both android & ios
-                    borderTopWidth: 0,
-                    borderTopColor: "transparent",
-
-                    elevation: 0,
-                    shadowColor: '#5bc4ff',
-                    shadowOpacity: 0,
-                    shadowOffset: {
-                        height: 0,
-                    },
-                    shadowRadius: 0,
-                }
-            }}
-
-
+            tabBarOptions={config.tabBarOptions}
         >
             <Tab.Screen name="Toi recebido" component={Received} />
             <Tab.Screen name="Toi enviado" component={Sended} />
@@ -51,7 +31,6 @@ const TabNavigator = () => {
         </Tab.Navigator>
     )
 }
-
 
 const Routes = () => {
     return (
