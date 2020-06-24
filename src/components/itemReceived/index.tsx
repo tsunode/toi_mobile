@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
-import { View, Animated, Text, Image, TouchableOpacity } from 'react-native';
+import React, { useState, useImperativeHandle } from 'react';
+import { View, Animated, Text, Image, TouchableOpacity, Modal } from 'react-native';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import IconToi from '../../config/icontoi';
 
 
 import styles from './styles';
 import { colors } from '../../styles';
+
+
 
 interface Props {
     id: number;
@@ -15,13 +17,12 @@ interface Props {
     save: boolean;
     onRightPress: any;
     onLeftPress: any;
-
+    setModalVisible: any;
+    ref: any
 }
 
 
-
-const ItemReceived: React.FC<Props> = (props) => {
-
+const ItemReceived = React.forwardRef((props: Props, ref: any) => {
 
     const [itemAnimated, setItemAnimated] = useState(new Animated.Value(0));
     const [refItem, setRefItem] = useState<Swipeable | null>();
@@ -45,7 +46,7 @@ const ItemReceived: React.FC<Props> = (props) => {
     }
 
     const RightActions = (progress: Animated.AnimatedInterpolation, dragX: Animated.AnimatedInterpolation) => {
-        
+
         const scale = dragX.interpolate({
             inputRange: [-50, 0],
             outputRange: [1, 0],
@@ -65,6 +66,31 @@ const ItemReceived: React.FC<Props> = (props) => {
         )
     }
 
+    useImperativeHandle(ref, () => ({
+        handleteste 
+    }))
+
+    const handleteste = () => {
+         // fecha o card e altera o estado
+         if (refItem !== null && refItem !== undefined) {
+            refItem.close()
+            props.onLeftPress(props.id === undefined ? 0 : props.id);
+        }
+
+        // verifica o estado antigo, para aplicar a animação
+        let value = props.save ? 0 : 1;
+
+        // animação da opacidade da borda do card
+        Animated.timing(
+            interpolatedColor,
+            {
+                duration: 500,
+                toValue: value,
+                useNativeDriver: true,
+            }
+        ).start();
+    }
+
     async function handleTrash() {
 
         //executa a animação e depois apaga o item
@@ -82,25 +108,8 @@ const ItemReceived: React.FC<Props> = (props) => {
 
     async function handleSave() {
 
-        // fecha o card e altera o estado
-        if (refItem !== null && refItem !== undefined) {
-            refItem.close()
-            props.onLeftPress(props.id === undefined ? 0 : props.id);
-        }
-
-        // verifica o estado antigo, para aplicar a animação
-        let value = props.save ? 0 : 1;
-
-        // animação da opacidade da borda do card
-        Animated.timing(
-            interpolatedColor,
-            {
-                duration: 500,
-                toValue: value,
-                useNativeDriver: true,
-            }
-        ).start();
-
+        props.setModalVisible();
+        
     }
 
     return (
@@ -157,6 +166,6 @@ const ItemReceived: React.FC<Props> = (props) => {
             </Swipeable>
         </Animated.View>
     )
-}
+});
 
 export default ItemReceived;

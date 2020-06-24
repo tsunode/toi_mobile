@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, Image, FlatList, Animated, LayoutAnimation, UIManager } from "react-native";
-
-import IconToi from '../../config/icontoi';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { View, Text, ScrollView, TouchableOpacity, FlatList, LayoutAnimation, UIManager, Modal, Alert, CheckBox } from "react-native";
 
 // Components
 import Header from '../../components/header';
@@ -18,16 +16,21 @@ interface Item {
 
 }
 
+interface ItemReceivedRef {
+    handleteste: Function
+}
+
 UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+
 const Received = () => {
 
     const [filter, setFilter] = useState(0);
 
-    const [itemAnimated, setItemAnimated] = useState<Animated.Value[]>([]);
-
     const [recivedTois, setRecivedTois] = useState<Item[]>([]);
 
+    const [modalVisible, setModalVisible] = useState(false);
 
+    const itemReceived = useRef<ItemReceivedRef[]>([]);
 
     const setAnimation = () => {
         LayoutAnimation.configureNext({
@@ -58,6 +61,9 @@ const Received = () => {
                 { id: 4, user: 'Rose Almeida', proffession: 'Do lar', image: '../../assets/img/sem_perfil.jpg', save: false },
             ];
             setRecivedTois(items);
+
+            itemReceived.current = new Array(items.length);
+
         }
 
         carregaDadosTeste()
@@ -65,6 +71,7 @@ const Received = () => {
     }, []);
 
     function handleTrash(id: number) {
+
         const filterRecivedTois = recivedTois.filter(item => item.id !== id);
 
         setAnimation();
@@ -72,6 +79,7 @@ const Received = () => {
     }
 
     function handleSave(id: number) {
+
         const filterRecivedTois: Item[] = recivedTois.map(item => {
             if (item.id === id) {
                 item.save = item.save ? false : true;
@@ -81,6 +89,7 @@ const Received = () => {
 
         setRecivedTois(filterRecivedTois);
     }
+
 
     // Teste de filtros
     const filtros = [
@@ -123,12 +132,41 @@ const Received = () => {
                     data={recivedTois}
                     keyExtractor={item => String(item.id)}
                     renderItem={({ item, index }) => {
-
                         return (
-                            <ItemReceived {...item} onRightPress={() => handleTrash(item.id)} onLeftPress={() => handleSave(item.id)} />
+                            <ItemReceived
+                                {...item}
+                                onRightPress={() => handleTrash(item.id)}
+                                onLeftPress={() => handleSave(item.id)}
+                                setModalVisible={() => setModalVisible(true)}
+                                ref={ref => itemReceived.current[index] = ref as ItemReceivedRef}
+                            />
                         )
                     }}
                 />
+
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={modalVisible}
+                >
+                    <View style={styles.centeredView}>
+                        <View style={styles.modalView}>
+                            <Text style={styles.modalText}>Tem certeza que deseja marcar esse toi para responder mais tarde?</Text>
+                            <View style={styles.checkModal}>
+                                <CheckBox />
+                                <Text> Não mostrar essa mensagem novamente</Text>
+                            </View>
+                            <View style={styles.footerModal}>
+                                <TouchableOpacity style={styles.buttonModal} onPress={() => { setModalVisible(false); itemReceived.current[0]?.handleteste(); }}>
+                                    <Text style={styles.modalTextButton}>Sim</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.buttonModal}>
+                                    <Text style={styles.modalTextButton}>Não</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </View>
+                </Modal>
             </View>
         </>
     )

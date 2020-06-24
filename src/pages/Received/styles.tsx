@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 
     filterContainer: {
         paddingVertical: 5,
-        backgroundColor:  colors.dark_primary,
+        backgroundColor: colors.dark_primary,
     },
 
     filterActive: {
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     },
 
     filterText: {
-        color:  colors.text,
+        color: colors.text,
         fontSize: 18,
         textAlign: 'center'
     },
@@ -126,7 +126,62 @@ const styles = StyleSheet.create({
         color: colors.text,
         fontSize: 18,
         marginLeft: 5,
+    },
+
+    centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: 'rgba(0,0,0,0.5)'
+    },
+
+    modalView: {
+        margin: 20,
+        backgroundColor: colors.primary,
+        borderRadius: 20,
+        padding: 20,
+        alignItems: "center",
+        shadowColor: colors.primary,
+        shadowOffset: {
+            width: 0,
+            height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5
+    },
+
+    modalText: {
+        marginBottom: 15,
+        color: colors.text,
+        textAlign: "center",
+        fontSize: 18,
+        fontWeight: 'bold'
+    },
+
+    checkModal: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+
+    footerModal: {
+        flexDirection: 'row'
+    },
+
+    buttonModal: {
+        backgroundColor: colors.text,
+        paddingHorizontal: 15,
+        paddingVertical: 5,
+        marginHorizontal: 5,
+        marginTop: 10,
+        borderRadius: 10,
+        flex: 1
+    },
+
+    modalTextButton:{
+        textAlign: 'center'
     }
+
 })
 
 export default styles;
